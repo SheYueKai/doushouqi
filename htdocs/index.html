@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf8'>
+	<title>HTML5实现斗兽棋游戏——佘跃楷毕业设计</title>
+	<style type="text/css">
+		body{
+			font-family: "Microsoft Yahei";
+			background-image: url(img/background.bmp);
+		}
+		.chessboard{
+			margin: 0 auto;
+			min-width: 470px;
+			min-height: 600px;
+		}
+		#canvas{
+			display: block;
+			margin: 0 auto;
+		}
+		.button-box{
+			width: 160px;
+			margin: 10px auto;
+		}
+		#start-button,#rule-botton{
+			width: 75px;
+		}
+		.rule-hide{
+			display: none;
+		}
+		.rule{
+			display: block;
+			width: 400px;
+			height: 550px;
+			position: fixed;
+			top: 0;
+			right: 0;
+			padding: 20px;
+			background-color: #efe3af;
+		}
+		.close-button{
+			position: absolute;
+			top: 10px;
+			right: 20px;
+			border-style: none;
+			font-weight: bolder;
+			color: #fff;
+			background-color: #f00;
+		}
+		.rule h3{
+			font-size: 19px;
+			color: #009bd8;
+			margin: 0 0 5px;
+		}
+		.rule p{
+			font-size: 15px;
+			color: #ad6339;
+			margin: 10px 0;
+		}
+	</style>
+</head>
+
+<body onload="com.init();">
+	<div class="doushouqi"> 
+		<div class="chessboard">
+			<canvas id="canvas"  width="420" height="540" style="display:block; mar">
+				对不起，您的浏览器不支持HTML5，请升级浏览器至IE9、firefox或者谷歌浏览器！
+			</canvas>	
+			<div class="button-box">
+				<span id="start-button">
+					<input type="button" name="start" value="开始游戏" />
+				</span>
+				<span id="rule-button">
+					<input type="button" name="rule-button" value="游戏规则" />
+				</span>
+			</div>		
+		</div>
+		<div class="rule-hide" id="rule">
+			<div id="close-button">
+				<input type="button" name="rule-button" class="close-button" value="X" />
+			</div>	
+			<h3>行棋规则:</h3>
+			<p>1、普通走法：对战双方轮流行子，红方先走。所有棋子每次只能走一方格，前后左右均可。己方棋子不能走入己方兽穴，除了鼠，其它棋子不能入河。</p>
+			<p>2、鼠入水中法：鼠过河可以走入水中（走法同陆地），如鼠在河里，陆地上的兽类都不能吃它，鼠亦不能吃陆地上的 象。当两鼠在河内相遇，可以互吃。</p>
+			<p>3、狮虎跳河法：棋盘中有两条河，狮虎过河，可以纵横对直跳过，如果河对岸有敌方的棋子，也能把敌方较小的棋子吃掉， 但是如果老鼠在河里，把跳的路线阻隔掉就不能跳。</p>
+
+			<h3>吃法:</h3>
+			<p>1、普通吃法：象 > 狮 > 虎 > 豹 > 狼 > 狗 > 猫 > 鼠。</p>
+			<p>2、鼠吃象法：除普通吃法外，鼠可以吃象。</p>
+			<p>3、互吃法：凡同类相遇，可互相吃。</p>
+			<p>4、陷阱：棋盘设陷阱，专为限制敌兽的战斗力（自己的兽类不受限制），敌兽走入陷阱，即失去战斗力，本方的任意兽类都可以吃去陷阱里的敌兽。</p>
+
+			<h3>胜利条件（满足一项即可）：</h3>
+			<p>1、任何己方棋子走入敌方的兽穴</p>
+			<p>2、吃光敌方的所有棋子</p>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/com.js"></script>
+</body>
+</html>
